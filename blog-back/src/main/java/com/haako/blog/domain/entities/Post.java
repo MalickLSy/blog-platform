@@ -1,8 +1,11 @@
 package com.haako.blog.domain.entities;
 
+import com.haako.blog.domain.PostStatus;
 import jakarta.persistence.*;
-import org.hibernate.sql.results.graph.Fetch;
-import org.w3c.dom.Text;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -13,6 +16,10 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "posts")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Post {
 
     @Id

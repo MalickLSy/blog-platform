@@ -1,0 +1,23 @@
+package com.haako.blog.domain.dtos;
+
+import lombok.*;
+import java.util.List;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class ApiErrorResponse {
+    private int status;
+    private String message;
+    private List<FieldError> errors;
+
+    @Builder
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class FieldError{
+        private String field;
+        private String message;
+    }
+}

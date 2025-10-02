@@ -1,4 +1,4 @@
-package com.haako.blog.domain.entities;
+package com.haako.blog.domain;
 
 public enum PostStatus {
     DRAFT,
