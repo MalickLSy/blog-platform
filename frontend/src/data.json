@@ -1,0 +1,19 @@
+{
+   "personne 1" :{
+    "age":"20",
+    "sexe":"M",
+    "prenom": "fghjk"
+   },
+   "personne 2" :{
+    "age":"20",
+    "sexe":"M",
+    "prenom": "fghjk"
+   },
+   "personne 3" :{
+    "age":"20",
+    "sexe":"M",
+    "prenom": "fghjk"
+   }
+
+
+}

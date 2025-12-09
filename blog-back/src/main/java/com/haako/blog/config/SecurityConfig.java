@@ -45,7 +45,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity,JwtAuthenticationFilter jwtAuthenticationFilter ) throws Exception {
         httpSecurity
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST, "/api/v1/auth/login/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/auth/login").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/posts/drafts").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/posts/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/categories/**").permitAll()
                         .requestMatchers(HttpMethod.GET,"/api/v1/tags/**").permitAll()

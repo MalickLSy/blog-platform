@@ -3,6 +3,7 @@ package com.haako.blog.services.impl;
 import com.haako.blog.domain.entities.Category;
 import com.haako.blog.repositories.CategoryRepository;
 import com.haako.blog.services.CategoryService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +39,10 @@ public class CategoryServiceImpl implements CategoryService {
             }
            categoryRepository.deleteById(id);
         }
+    }
+
+    @Override
+    public Category getCategoryById(UUID id) {
+        return categoryRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("Category not found with id "+ id));
     }
 }

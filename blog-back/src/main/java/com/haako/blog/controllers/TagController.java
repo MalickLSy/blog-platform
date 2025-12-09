@@ -1,7 +1,7 @@
 package com.haako.blog.controllers;
 
 import com.haako.blog.domain.dtos.CreateTagRequest;
-import com.haako.blog.domain.dtos.TagResponse;
+import com.haako.blog.domain.dtos.TagDto;
 import com.haako.blog.domain.entities.Tag;
 import com.haako.blog.mappers.TagMapper;
 import com.haako.blog.services.TagService;
@@ -24,15 +24,15 @@ public class TagController {
 
 
     @GetMapping
-    public ResponseEntity<List<TagResponse>> getAllTags(){
-        List<TagResponse> tagResponses = tagService.getTags().stream().map(tagMapper::toTagResponse).toList();
+    public ResponseEntity<List<TagDto>> getAllTags(){
+        List<TagDto> tagResponses = tagService.getTags().stream().map(tagMapper::toTagResponse).toList();
         return ResponseEntity.ok(tagResponses);
     }
 
     @PostMapping
-    public ResponseEntity<List<TagResponse>> createTag(@RequestBody CreateTagRequest createTagsRequest){
+    public ResponseEntity<List<TagDto>> createTag(@RequestBody CreateTagRequest createTagsRequest){
         List<Tag> savedTags = tagService.createTags(createTagsRequest.getNames());
-        List<TagResponse> createdTagResponses = savedTags.stream().map(tagMapper::toTagResponse).toList();
+        List<TagDto> createdTagResponses = savedTags.stream().map(tagMapper::toTagResponse).toList();
         return new ResponseEntity<>(
                 createdTagResponses,
                 HttpStatus.CREATED

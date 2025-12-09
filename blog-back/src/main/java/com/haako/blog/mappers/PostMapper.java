@@ -1,2 +1,18 @@
-package com.haako.blog.mappers;public class PostMapper {
+package com.haako.blog.mappers;
+
+
+import com.haako.blog.domain.dtos.PostDto;
+import com.haako.blog.domain.entities.Post;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.ReportingPolicy;
+
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+public interface PostMapper {
+
+    @Mapping(target = "author", source = "author")
+    @Mapping(target = "category", source = "category")
+    @Mapping(target = "tags", source= "tags")
+    PostDto toDto(Post post);
+
 }
